@@ -34,7 +34,7 @@ This project is a backend API that allows users to register and apply for person
 
 ### 1. Clone the Repository
 
-```
+```bash
 git clone https://github.com/fabian8221/mid-senior-test.git
 cd mid-senior-test
 ```
@@ -99,6 +99,7 @@ To run the tests, use the following command:
 npm test
 ```
 
+
 ### 7. API Endpoints
 
 #### User Authentication
@@ -117,8 +118,8 @@ npm test
   - **POST** `/api/loans`
   - Request Body: `{ "amount": 5000, "purpose": "Home Renovation", "duration": 12 }`
 
-- **Retrieve all loans for the logged-in user**
-  - **GET** `/api/loans`
+- **Retrieve all loans for the logged-in user with pagination**
+  - **GET** `/api/loans?page=1&limit=5`
 
 - **Retrieve details of a specific loan**
   - **GET** `/api/loans/:id`
@@ -133,12 +134,13 @@ npm test
   - **POST** `/api/payments`
   - Request Body: `{ "loan_id": 1, "amount_paid": 1000 }`
 
-- **Retrieve payment history of a specific loan**
-  - **GET** `/api/loans/:id/payments`
+- **Retrieve payment history of a specific loan with pagination**
+  - **GET** `/api/loans/:id/payments?page=1&limit=5`
 
 ## Testing
 
-The project includes unit tests for key features. You can run the tests using:
+The project includes unit tests for key features, including pagination and rate limiting. You can run the tests using:
+
 
 ```bash
 npm test
